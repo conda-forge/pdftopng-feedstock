@@ -14,7 +14,7 @@ source:
     sha256: 285258e387080c775e4f6f5bca652e9e707c3beac83c6625d3b840c4e13c6440
 
 build:
-  number: 2
+  number: 3
   entry_points:
     - pdftopng = pdftopng.cli:cli
 
