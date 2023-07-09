@@ -10,11 +10,11 @@ source:
     patches:
       - 0001-fix-setup.patch
       - setOverprintPreview.patch
-  - url: https://github.com/freedesktop/poppler/raw/fcdff7bb19e2ac0fab6505f17e0c18c8faa86323/utils/numberofcharacters.h
+  - url: https://gitlab.freedesktop.org/poppler/poppler/-/raw/ee2af17e916e6310ab25b92a638df380b18a24ee/utils/numberofcharacters.h
     sha256: 285258e387080c775e4f6f5bca652e9e707c3beac83c6625d3b840c4e13c6440
 
 build:
-  number: 10
+  number: 11
   entry_points:
     - pdftopng = pdftopng.cli:cli
 
