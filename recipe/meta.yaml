@@ -14,7 +14,7 @@ source:
     sha256: 285258e387080c775e4f6f5bca652e9e707c3beac83c6625d3b840c4e13c6440
 
 build:
-  number: 15
+  number: 16
   entry_points:
     - pdftopng = pdftopng.cli:cli
 
@@ -24,6 +24,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - setuptools
