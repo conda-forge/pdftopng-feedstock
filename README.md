@@ -283,4 +283,5 @@ Feedstock Maintainers
 
 * [@izahn](https://github.com/izahn/)
 * [@vinayak-mehta](https://github.com/vinayak-mehta/)
+* [@xhochy](https://github.com/xhochy/)
 
