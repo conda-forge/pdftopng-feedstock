@@ -9,7 +9,7 @@ source:
     sha256: d321f1378639c2a8f3fa4dfb18abd67f3034053bc4840ea1485c4776ad2c866c
     patches:
       - 0001-fix-setup.patch
-      - setOverprintPreview.patch
+      - 0002-setOverprintPreview.patch
   - url: https://gitlab.freedesktop.org/poppler/poppler/-/raw/ee2af17e916e6310ab25b92a638df380b18a24ee/utils/numberofcharacters.h
     sha256: 285258e387080c775e4f6f5bca652e9e707c3beac83c6625d3b840c4e13c6440
 
