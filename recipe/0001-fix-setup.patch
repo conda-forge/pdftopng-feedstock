@@ -35,7 +35,7 @@ index 771ab97..6956c3e 100644
      x = "x64" if sys.maxsize > 2**32 else "x86"
  
 -    poppler_dir = os.path.join(os.getcwd(), "lib", "poppler")
-+    poppler_dir = os.path.join(PREFIX, "lib", "poppler")
++    poppler_dir = os.path.join(PREFIX, "Library", "include", "poppler")
      build_dir = os.path.join(poppler_dir, f"build_win_{x}")
  
 -    # set VCPKG_INSTALLATION_ROOT=C:\dev\vcpkg
