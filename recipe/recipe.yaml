@@ -1,11 +1,14 @@
-{% set version = "0.2.4" %}
+schema_version: 1
+
+context:
+  version: 0.2.4
 
 package:
   name: pdftopng
-  version: {{ version }}
+  version: ${{ version }}
 
 source:
-  - url: https://github.com/vinayak-mehta/pdftopng/archive/v{{ version }}.tar.gz
+  - url: https://github.com/vinayak-mehta/pdftopng/archive/v${{ version }}.tar.gz
     sha256: d321f1378639c2a8f3fa4dfb18abd67f3034053bc4840ea1485c4776ad2c866c
     patches:
       - 0001-fix-setup.patch
@@ -15,17 +18,22 @@ source:
 
 build:
   number: 1
-  entry_points:
-    - pdftopng = pdftopng.cli:cli
+  python:
+    entry_points:
+      - pdftopng = pdftopng.cli:cli
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - pybind11                               # [build_platform != target_platform]
-    - {{ compiler('cxx') }}
-    - {{ stdlib("c") }}
-    - sed  # [unix]
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: pybind11
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - if: unix
+      then: sed
   host:
     - python
     - setuptools
@@ -38,15 +46,16 @@ requirements:
     - poppler
     - click
 
-test:
-  imports:
-    - pdftopng
+tests:
+  - python:
+      imports:
+        - pdftopng
 
 about:
-  home: https://github.com/vinayak-mehta/pdftopng
   license: GPL-2.0-only
   license_file: LICENSE
   summary: A PDF to PNG conversion library (based on pdftoppm from poppler)
+  homepage: https://github.com/vinayak-mehta/pdftopng
 
 extra:
   recipe-maintainers:
